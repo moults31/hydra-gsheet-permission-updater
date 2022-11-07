@@ -11,9 +11,9 @@ from google.oauth2 import service_account
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/drive']
-CREDS_PATH = '/secrets/cred.json'
-USER_EMAILS_PATH = '/secrets/user_emails.txt'
-NAME_FILTERS_PATH = '/secrets/name_filters.txt'
+CREDS_PATH = '/secret_cred/cred.json'
+USER_EMAILS_PATH = '/secret_user_emails/user_emails.txt'
+NAME_FILTERS_PATH = '/secret_name_filters/name_filters.txt'
 
 def main(delete):
     """
