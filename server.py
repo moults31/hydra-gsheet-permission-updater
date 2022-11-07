@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    update_permissions.main()
+    update_permissions.main(delete=False)
     date = datetime.now()
     report = "Updated at {}".format(date)
     app.logger.info(report)
@@ -20,4 +20,5 @@ def index():
 
 
 if __name__ == "__main__":
+    print("Starting server")
     serve(app, host="0.0.0.0", port=8080)
