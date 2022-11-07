@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
+import os
 import argparse
 
 from googleapiclient.discovery import build
@@ -21,6 +22,10 @@ def main(delete):
     Useful in cases where the spreadsheet is currently only visible to the service account that created it.
     Gives "writer" permissions to all users in user_emails.txt
     """
+
+    for path in [CREDS_PATH, USER_EMAILS_PATH, NAME_FILTERS_PATH]:
+        if not os.path.isfile(path):
+            raise RuntimeError(f"No such file {path}")
 
     creds = service_account.Credentials.from_service_account_file(
             CREDS_PATH, scopes=SCOPES)
